@@ -1,1 +1,11 @@
+pgvector
+psycopg2-binary
+langchain_postgres
+
+langchain_openai
+python-dotenv
+langchain_community
+langchain
+
+
 streamlit
