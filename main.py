@@ -1,6 +1,8 @@
 import streamlit as st
 from sqlalchemy.sql.functions import random
 
+
+from application import dialog_UI
 from application.utilities.home_component import expander_button
 from application.const import list_of_uni, doc_of_uni
 
@@ -19,5 +21,6 @@ for uni_name in list_of_uni:
 
 if st.session_state.item_selected:
     st.write(f"you chosen: {st.session_state.item_selected}")
+    dialog_UI.dialog()
 else:
     st.write("Please select an option from sidebar")
