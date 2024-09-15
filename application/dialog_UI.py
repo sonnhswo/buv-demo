@@ -1,7 +1,7 @@
 import streamlit as st
 import time
-from application.app_AUB import get_prompt_ans
-
+# from application.app_AUB import get_prompt_ans
+from application import app_AUB
 
 def dialog():
 
@@ -51,7 +51,7 @@ def dialog():
             st.markdown(prompt)
 
         # Update session state
-        answer, suggested_questions = get_prompt_ans(prompt)
+        answer, suggested_questions = app_AUB.get_prompt_ans(prompt)
         # answer = answer.replace("\n", "  \n")
 
         # Display assistant response in chat message container
@@ -88,7 +88,7 @@ def dialog():
             with st.chat_message("assistant", avatar="data/img/BUV_assistant_icon.png"):
                 # get the answer and suggested questions from vectordb
                 try:
-                    answer, suggested_questions = get_prompt_ans(question)
+                    answer, suggested_questions = app_AUB.get_prompt_ans(question)
                 except:
                     answer = "Sorry, I cannot find related information."
                     suggested_questions = []
