@@ -2,7 +2,7 @@ from dotenv import load_dotenv, find_dotenv
 from langchain_openai import OpenAIEmbeddings, AzureOpenAIEmbeddings
 import os
 
-load_dotenv(find_dotenv("../application/.env"))
+load_dotenv(find_dotenv("../.env"))
 
 AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
 AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
