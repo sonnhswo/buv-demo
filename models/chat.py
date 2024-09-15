@@ -2,7 +2,7 @@ from dotenv import load_dotenv, find_dotenv
 from langchain_openai import AzureChatOpenAI
 import os
 
-load_dotenv(find_dotenv("../application/.env"))
+load_dotenv(find_dotenv("../.env"))
 
 
 # Azure model

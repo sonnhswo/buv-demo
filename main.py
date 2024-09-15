@@ -1,34 +1,23 @@
 import streamlit as st
+from sqlalchemy.sql.functions import random
 
-# Khởi tạo các biến trạng thái để quản lý trạng thái của các nút
+from application.utilities.home_component import expander_button
+from application.const import list_of_uni, doc_of_uni
+
+# initial session state of all variables
 if 'item_selected' not in st.session_state:
     st.session_state.item_selected = None
 
-# Sidebar với các nút chính
-st.sidebar.markdown("### Danh sách các trường đại học")
+# Sidebar with main buttons
+st.sidebar.markdown("### University")
 
-# Tạo các phần mở rộng (expanders) cho từng Uni
-with st.sidebar.expander("Uni A", expanded=False):
-    if st.button("Item A1"):
-        st.session_state.item_selected = "Item A1"
-    if st.button("Item A2"):
-        st.session_state.item_selected = "Item A2"
+for uni_name in list_of_uni:
+    doc_list = doc_of_uni[uni_name]
+    expander_button(uni_name, doc_list)
 
-with st.sidebar.expander("Uni B", expanded=False):
-    if st.button("Item B1"):
-        st.session_state.item_selected = "Item B1"
-    if st.button("Item B2"):
-        st.session_state.item_selected = "Item B2"
+# display main page content
 
-with st.sidebar.expander("Uni C", expanded=False):
-    if st.button("Item C1"):
-        st.session_state.item_selected = "Item C1"
-    if st.button("Item C2"):
-        st.session_state.item_selected = "Item C2"
-
-# Hiển thị nội dung ở trang giữa
-st.write("### Nội dung trang giữa")
 if st.session_state.item_selected:
-    st.write(f"Bạn đã chọn: {st.session_state.item_selected}")
+    st.write(f"you chosen: {st.session_state.item_selected}")
 else:
-    st.write("Vui lòng chọn một mục từ sidebar.")
+    st.write("Please select an option from sidebar")
