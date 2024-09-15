@@ -171,4 +171,4 @@ pages_old/
 debug.ipynb
 
 test.py
-.env
+application/.env
