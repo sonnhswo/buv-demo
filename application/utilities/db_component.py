@@ -32,19 +32,19 @@ DATABASES = {
 
     "Staffordshire University (SU)": {
         "Student handbook (pending)": "",
-        "SU-OCT24-FREQUENTLY ASKED QUESTIONS": "",
-        "PSG Programme Handbook_Oct 2024": "",
+        "SU-OCT24-FREQUENTLY ASKED QUESTIONS": os.getenv("DEMO_DATABASE_SU_FREQUENTLYASKEDQUESTION"),
+        "PSG Programme Handbook_Oct 2024": os.getenv("DEMO_DATABASE_SU_PSG"),
     },
 
     "University of London- Undergraduate (UoL)": {
         "Student handbook (pending)": "",
-        "UoL-OCT24-FREQUENTLY ASKED QUESTIONS": "",
-        "PSG Programme Handbook_Oct 2024": "",
+        "UoL-OCT24-FREQUENTLY ASKED QUESTIONS": os.getenv("DEMO_DATABASE_UOL_FREQUENTLYASKEDQUESTION"),
+        "PSG Programme Handbook_Oct 2024": os.getenv("DEMO_DATABASE_UOL_PSG"),
     },
 
     "University of London- International Foundation Programme (IFP)": {
-        "Student handbook (pending)",
-        "IFP-OCT24-FREQUENTLY ASKED QUESTIONS",
+        "Student handbook (pending)": "",
+        "IFP-OCT24-FREQUENTLY ASKED QUESTIONS": os.getenv("DEMO_DATABASE_IFP_FREQUENTLYASKEDQUESTION"),
     },
 
     "University of Stirling (US)": {

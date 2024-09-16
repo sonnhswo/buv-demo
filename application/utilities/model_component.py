@@ -23,7 +23,7 @@ IFP_studenthandbook = ""
 IFP_frequentlyaskedquestion_retriever = ""
 
 US_studenthandbook = ""
-US_frequentlyaskedquestion_retriever = db_component.get_retriever(uni_name="Arts University Bournemouth (AUB)", doc_name="AUB-OCT24-FREQUENTLY ASKED QUESTIONS")
+US_frequentlyaskedquestion_retriever = db_component.get_retriever(uni_name="University of Stirling (US)", doc_name="US-OCT24-FREQUENTLY ASKED QUESTIONS")
 US_PSG = ""
 
 #------------ cache mapping uni name and retriever
