@@ -39,7 +39,7 @@ doc_of_uni = {
     "University of London- International Foundation Programme (IFP)": [
         "Student handbook (pending)",
         "IFP-OCT24-FREQUENTLY ASKED QUESTIONS",
-        "pending"
+
     ],
     "University of Stirling (US)": [
         "Student handbook (pending)",

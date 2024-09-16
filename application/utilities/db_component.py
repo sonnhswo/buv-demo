@@ -21,17 +21,36 @@ DATABASES = {
     "Arts University Bournemouth (AUB)": {
         "Student handbook (pending)": "",
         "AUB-OCT24-FREQUENTLY ASKED QUESTIONS": os.getenv("DEMO_DATABASE_AUB_FREQUENTLYASKEDQUESTION"),
+        "PSG Programme Handbook_Oct 2024": os.getenv("DEMO_DATABASE_AUB_PSG"),
+    },
+
+    "British University Vietnam (IHM/FE)": {
+        "Student handbook (pending)": "",
+        "BUV-OCT24-FREQUENTLY ASKED QUESTIONS": os.getenv("DEMO_DATABASE_IHMFE_FREQUENTLYASKEDQUESTION"),
+        "PSG Programme Handbook_Oct 2024": os.getenv("DEMO_DATABASE_IHMFE_PSG"),
+    },
+
+    "Staffordshire University (SU)": {
+        "Student handbook (pending)": "",
+        "SU-OCT24-FREQUENTLY ASKED QUESTIONS": "",
         "PSG Programme Handbook_Oct 2024": "",
     },
 
-    "British University Vietnam (IHM/FE)": "",
-    "Staffordshire University (SU)": "",
-    "University of London- Undergraduate (UoL)": "",
-    "University of London- International Foundation Programme (IFP)": "",
+    "University of London- Undergraduate (UoL)": {
+        "Student handbook (pending)": "",
+        "UoL-OCT24-FREQUENTLY ASKED QUESTIONS": "",
+        "PSG Programme Handbook_Oct 2024": "",
+    },
+
+    "University of London- International Foundation Programme (IFP)": {
+        "Student handbook (pending)",
+        "IFP-OCT24-FREQUENTLY ASKED QUESTIONS",
+    },
+
     "University of Stirling (US)": {
         "Student handbook (pending)": "",
         "US-OCT24-FREQUENTLY ASKED QUESTIONS": os.getenv("DEMO_DATABASE_US_FREQUENTLYASKEDQUESTION"),
-        "PSG Programme Handbook_Oct 2024": "",
+        "PSG Programme Handbook_Oct 2024":os.getenv("DEMO_DATABASE_US_PSG"),
     },
 }
 
