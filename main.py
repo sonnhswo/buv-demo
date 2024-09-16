@@ -22,8 +22,8 @@ for uni_name in list_of_uni:
 # display main page content
 
 if st.session_state.item_selected:
-    st.write(f"you chosen: {st.session_state.item_selected}")
-    st.write(f"uni name: {st.session_state.uni_name}")
+    # st.write(f"you chosen: {st.session_state.item_selected}")
+    # st.write(f"uni name: {st.session_state.uni_name}")
     dialog_UI.dialog(uni_name=st.session_state.uni_name, doc_name=st.session_state.item_selected)
 else:
     st.write("Please select an option from sidebar")

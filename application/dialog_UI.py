@@ -8,9 +8,8 @@ from application.agents import ChatMemoryAgent
 def dialog(uni_name, doc_name):
 
     #-------------- get the right retriever
-
-
-    st.header("chatbot dialog for" + str(uni_name) + str(doc_name))
+    st.header(str(uni_name))
+    st.markdown(str(doc_name))
 
 
     chat_history = []
