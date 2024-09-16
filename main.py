@@ -9,6 +9,8 @@ from application.const import list_of_uni, doc_of_uni
 # initial session state of all variables
 if 'item_selected' not in st.session_state:
     st.session_state.item_selected = None
+if 'uni_name' not in st.session_state:
+    st.session_state.uni_name = None
 
 # Sidebar with main buttons
 st.sidebar.markdown("### University")
@@ -21,6 +23,7 @@ for uni_name in list_of_uni:
 
 if st.session_state.item_selected:
     st.write(f"you chosen: {st.session_state.item_selected}")
-    dialog_UI.dialog()
+    st.write(f"uni name: {st.session_state.uni_name}")
+    dialog_UI.dialog(uni_name=st.session_state.uni_name, doc_name=st.session_state.item_selected)
 else:
     st.write("Please select an option from sidebar")

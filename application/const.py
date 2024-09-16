@@ -1,3 +1,11 @@
+import streamlit as st
+from application.utilities import db_component
+import os
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv('../.env'))
+
+
 list_of_uni = [
     "Arts University Bournemouth (AUB)",
     "British University Vietnam (IHM/FE)",
@@ -39,3 +47,4 @@ doc_of_uni = {
         "PSG Programme Handbook_Oct 2024",
     ]
 }
+
