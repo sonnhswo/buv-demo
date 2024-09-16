@@ -7,20 +7,20 @@ AUB_studenthandbook = "" # db_component.get_retriever(uni_name="Arts University 
 AUB_frequentlyaskedquestion_retriever = db_component.get_retriever(uni_name="Arts University Bournemouth (AUB)", doc_name="AUB-OCT24-FREQUENTLY ASKED QUESTIONS")
 AUB_PSG = db_component.get_retriever(uni_name="Arts University Bournemouth (AUB)", doc_name="PSG Programme Handbook_Oct 2024")
 
-IHMFE_studenthandbook = ""
-IHMFE_frequentlyaskedquestion_retriever = ""
-IHMFE_PSG = ""
+# IHMFE_studenthandbook = ""
+# IHMFE_frequentlyaskedquestion_retriever = ""
+# IHMFE_PSG = ""
 
-SU_studenthandbook = ""
-SU_frequentlyaskedquestion_retriever = ""
-SU_PSG = ""
+# SU_studenthandbook = ""
+# SU_frequentlyaskedquestion_retriever = ""
+# SU_PSG = ""
 
-UoL_studenthandbook = ""
-UoL_frequentlyaskedquestion_retriever = ""
-UoL_PSG = ""
+# UoL_studenthandbook = ""
+# UoL_frequentlyaskedquestion_retriever = ""
+# UoL_PSG = ""
 
-IFP_studenthandbook = ""
-IFP_frequentlyaskedquestion_retriever = ""
+# IFP_studenthandbook = ""
+# IFP_frequentlyaskedquestion_retriever = ""
 
 US_studenthandbook = ""
 US_frequentlyaskedquestion_retriever = db_component.get_retriever(uni_name="Arts University Bournemouth (AUB)", doc_name="AUB-OCT24-FREQUENTLY ASKED QUESTIONS")

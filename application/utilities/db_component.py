@@ -59,6 +59,7 @@ DATABASES = {
 
 def get_connection_str(uni_name, doc_name):
     db = DATABASES[uni_name][doc_name]
+    print(f"db: {db}")
     # connection_str = f"postgresql+psycopg2://{user}:{password}@{host}:5432/{db}"
     connection_str = f"postgresql+psycopg://{user}:{password}@{host}:5432/{db}"
     return connection_str
