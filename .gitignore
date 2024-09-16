@@ -172,3 +172,5 @@ debug.ipynb
 
 test.py
 application/.env
+
+test_conversation_memory.ipynb
