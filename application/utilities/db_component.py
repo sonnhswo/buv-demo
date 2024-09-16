@@ -6,8 +6,8 @@ from models.embeddings import text_embedding_3large
 from langchain.vectorstores.pgvector import PGVector
 import streamlit as st
 
-
-load_dotenv(find_dotenv('../.env'))
+# print(os.getcwd())
+load_dotenv(find_dotenv('.env'))
 
 host = os.getenv("DEMO_PG_VECTOR_HOST")
 user = os.getenv("DEMO_PG_VECTOR_USER")
@@ -40,7 +40,8 @@ DATABASES = {
 
 def get_connection_str(uni_name, doc_name):
     db = DATABASES[uni_name][doc_name]
-    connection_str = f"postgresql+psycopg2://{user}:{password}@{host}:5432/{db}"
+    # connection_str = f"postgresql+psycopg2://{user}:{password}@{host}:5432/{db}"
+    connection_str = f"postgresql+psycopg://{user}:{password}@{host}:5432/{db}"
     return connection_str
 
 

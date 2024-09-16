@@ -171,6 +171,7 @@ pages_old/
 debug.ipynb
 
 test.py
-application/.env
+.env_hoya
+.env
 
 test_conversation_memory.ipynb
