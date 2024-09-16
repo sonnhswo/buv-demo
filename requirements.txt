@@ -5,7 +5,7 @@ annotated-types==0.7.0
 anthropic==0.32.0
 anyio==4.4.0
 appnope==0.1.4
-appscript==1.2.5
+# appscript==1.2.5
 asgiref==3.8.1
 asttokens==2.4.1
 async-timeout==4.0.3
@@ -36,8 +36,8 @@ defusedxml==0.7.1
 Deprecated==1.2.14
 distro==1.9.0
 dnspython==2.6.1
-docx2pdf==0.1.8
-docx2txt==0.8
+# docx2pdf==0.1.8
+# docx2txt==0.8
 email_validator==2.2.0
 entrypoints==0.4
 et-xmlfile==1.1.0
