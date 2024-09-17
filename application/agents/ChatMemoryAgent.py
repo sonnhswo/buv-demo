@@ -14,10 +14,10 @@ from models.chat import azure_openai
 cached_retriever = model_component.get_cached_retriever()
 
 
-def get_answer(uni_name, doc_name, question):
+def get_answer(uni_name, question):
     try:
         # get the right retriever
-        retriever = cached_retriever[uni_name][doc_name]
+        retriever = cached_retriever[uni_name]
         retrieved = retriever.get_relevant_documents(question)
 
         combine_doc = ""
@@ -28,7 +28,8 @@ def get_answer(uni_name, doc_name, question):
         template = f"""You are a chatbot specialized in answering frequently asked questions from customers about the student information \
         provided by BUV.\n
     
-        Use exactly this following information as your answer: {combine_doc}
+        UUse only the information provided below to generate your response. Do not create or infer any information beyond this context: {combine_doc}\n
+        Ensure your response is short in UK English style.\n
         
         Current conversation:\n{{history}}\n
         Human: {{input}}\nAI:"""

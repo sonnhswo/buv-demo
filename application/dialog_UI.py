@@ -5,7 +5,7 @@ import time
 from application.agents import ChatMemoryAgent
 
 
-def dialog(uni_name, doc_name):
+def dialog(uni_name):
 
     #-------------- get the right retriever
     # st.header(str(uni_name))
@@ -51,10 +51,9 @@ def dialog(uni_name, doc_name):
 
         # Update session state
         # answer, suggested_questions = app_AUB.get_prompt_ans(prompt)
-        # answer = ChatMemoryAgent.get_answer(uni_name=uni_name,
-        #                                     doc_name=doc_name,
-        #                                     question=prompt)
-        answer = "answer 1 "
+        answer = ChatMemoryAgent.get_answer(uni_name=uni_name,
+                                            question=prompt)
+        # answer = "answer 1 "
 
         # Display assistant response in chat message container
         with st.chat_message("assistant", avatar="data/img/BUV_assistant_icon.png"):

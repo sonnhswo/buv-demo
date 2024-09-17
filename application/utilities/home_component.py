@@ -25,7 +25,7 @@ def display_homepage():
     #     unsafe_allow_html=True
     # )
 
-    with st.chat_message("assistant", avatar="./data/img/BUV_assistant_icon.png"):
+    with st.chat_message("assistant", avatar="./data/img/Starleo_himate.png"):
         st.write("Hi, I’m StarLeo, I’m happy to assist you!")
         st.write("Please select your awarding body for our further support. "
                  "If you are a dual degree student, please select the option "

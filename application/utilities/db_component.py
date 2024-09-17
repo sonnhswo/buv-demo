@@ -18,61 +18,30 @@ collection_name = os.getenv("COLLECTION_NAME")
 
 #----------------------------
 DATABASES = {
-    "Arts University Bournemouth (AUB)": {
-        "Student handbook (pending)": "",
-        "AUB-OCT24-FREQUENTLY ASKED QUESTIONS": os.getenv("DEMO_DATABASE_AUB_FREQUENTLYASKEDQUESTION"),
-        "PSG Programme Handbook_Oct 2024": os.getenv("DEMO_DATABASE_AUB_PSG"),
-    },
-
-    "British University Vietnam (IHM/FE)": {
-        "Student handbook (pending)": "",
-        "BUV-OCT24-FREQUENTLY ASKED QUESTIONS": os.getenv("DEMO_DATABASE_IHMFE_FREQUENTLYASKEDQUESTION"),
-        "PSG Programme Handbook_Oct 2024": os.getenv("DEMO_DATABASE_IHMFE_PSG"),
-    },
-
-    "Staffordshire University (SU)": {
-        "Student handbook (pending)": "",
-        "SU-OCT24-FREQUENTLY ASKED QUESTIONS": os.getenv("DEMO_DATABASE_SU_FREQUENTLYASKEDQUESTION"),
-        "PSG Programme Handbook_Oct 2024": os.getenv("DEMO_DATABASE_SU_PSG"),
-    },
-
-    "University of London- Undergraduate (UoL)": {
-        "Student handbook (pending)": "",
-        "UoL-OCT24-FREQUENTLY ASKED QUESTIONS": os.getenv("DEMO_DATABASE_UOL_FREQUENTLYASKEDQUESTION"),
-        "PSG Programme Handbook_Oct 2024": os.getenv("DEMO_DATABASE_UOL_PSG"),
-    },
-
-    "University of London- International Foundation Programme (IFP)": {
-        "Student handbook (pending)": "",
-        "IFP-OCT24-FREQUENTLY ASKED QUESTIONS": os.getenv("DEMO_DATABASE_IFP_FREQUENTLYASKEDQUESTION"),
-    },
-
-    "University of Stirling (US)": {
-        "Student handbook (pending)": "",
-        "US-OCT24-FREQUENTLY ASKED QUESTIONS": os.getenv("DEMO_DATABASE_US_FREQUENTLYASKEDQUESTION"),
-        "PSG Programme Handbook_Oct 2024":os.getenv("DEMO_DATABASE_US_PSG"),
-    },
+    "Arts University Bournemouth": os.getenv("DEMO_AUB"),
+    "British University Vietnam": os.getenv("DEMO_IHMFE"),
+    "Staffordshire University": os.getenv("DEMO_SU"),
+    "University of London- Undergraduate": os.getenv("DEMO_UOL"),
+    "University of London- International Foundation Programme": os.getenv("DEMO_IFP"),
+    "University of Stirling": os.getenv("DEMO_US"),
 }
 
 
-
-
-def get_connection_str(uni_name, doc_name):
-    print(f"uni_name: {uni_name}")
-    print(f"doc_name: {doc_name}")
-    db = DATABASES[uni_name][doc_name]
-    print(f"db: {db}")
-    # connection_str = f"postgresql+psycopg2://{user}:{password}@{host}:5432/{db}"
-    connection_str = f"postgresql+psycopg://{user}:{password}@{host}:5432/{db}"
+def get_connection_str(uni_name):
+    # print(f"uni_name: {uni_name}")
+    db = DATABASES[uni_name]
+    # print(f"db: {db}")
+    connection_str = f"postgresql+psycopg2://{user}:{password}@{host}:5432/{db}"
     return connection_str
 
 
 @st.cache_resource
-def get_retriever(uni_name, doc_name):
+def get_retriever(uni_name):
+    print(uni_name)
     vector_store = PGVector(
         embedding_function=text_embedding_3large,
         collection_name=collection_name,
-        connection_string=get_connection_str(uni_name=uni_name, doc_name=doc_name),
+        connection_string=get_connection_str(uni_name=uni_name),
     )
 
     retriever = vector_store.as_retriever(
@@ -83,5 +52,14 @@ def get_retriever(uni_name, doc_name):
         }
     )
     return retriever
-
+    #
+    # collection_string = get_connection_str(uni_name=uni_name)
+    # print("here:", collection_string)
+    # vector_store = PGVector(
+    #     embedding_function=text_embedding_3large,
+    #     # embedding_function=embeddings,
+    #     collection_name=collection_name,
+    #     connection_string=collection_string,
+    # )
+    # return
 

@@ -42,7 +42,7 @@ if option:
     # Thêm điều kiện khác nếu cần
     else:
         st.markdown(f"### {option}")
-        dialog_UI.dialog(uni_name=option, doc_name="")
+        dialog_UI.dialog(uni_name=option)
 
 # # Tạo kiểu CSS để điều chỉnh kích thước font
 # st.markdown(
