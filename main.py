@@ -3,8 +3,8 @@ from sqlalchemy.sql.functions import random
 
 
 from application import dialog_UI
-from application.utilities.home_component import expander_button, display_homepage
-from application.const import list_of_uni, doc_of_uni
+from application.utilities.home_component import expander_button, display_homepage, show_doc_sidebar
+from application.const import list_of_uni # doc_of_uni
 
 
 # st.set_page_config(
@@ -24,7 +24,7 @@ if 'uni_name' not in st.session_state:
 # Tạo selection box
 option = st.sidebar.selectbox(
     "Please select your University",
-    options=['Select ...'] + list_of_uni,
+    options=['Home'] + list_of_uni,
     index=0
 )
 
@@ -34,15 +34,14 @@ if option:
 
 
     # Kiểm tra điều kiện và hiển thị nội dung tương ứng
-    if option == 'Select ...':
+    if option == 'Home':
         # st.write("empty")
         display_homepage()
-
+        show_doc_sidebar(option)
 
     # Thêm điều kiện khác nếu cần
     else:
-        st.write("Content specific to the selected university.")
-        st.write(f"{option}")
+        st.markdown(f"### {option}")
         dialog_UI.dialog(uni_name=option, doc_name="")
 
 # # Tạo kiểu CSS để điều chỉnh kích thước font
