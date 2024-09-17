@@ -1,5 +1,22 @@
 import streamlit as st
+from PIL import Image
 
+# Load the image
+image_path = "./data/img/Starleo.png"
+image = Image.open(image_path)
+
+
+def display_homepage():
+    col1, col2, col3 = st.columns([0.2, 0.05, 0.75], gap="small")
+    col1.image(image_path, width=150)
+    col3.markdown("<div style='margin-top:30px;'></div>", unsafe_allow_html=True)
+    col3.title("Student Information Hub")
+
+    with st.chat_message("assistant", avatar="./data/img/BUV_assistant_icon.png"):
+        st.write("Hi, I’m StarLeo, I’m happy to assist you!")
+        st.write("Please select your awarding body for our further support. "
+                 "If you are a dual degree student, please select the option "
+                 "'British University Vietnam'.",)
 
 
 

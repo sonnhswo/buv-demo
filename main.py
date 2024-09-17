@@ -3,8 +3,15 @@ from sqlalchemy.sql.functions import random
 
 
 from application import dialog_UI
-from application.utilities.home_component import expander_button
+from application.utilities.home_component import expander_button, display_homepage
 from application.const import list_of_uni, doc_of_uni
+
+
+# st.set_page_config(
+#     page_title="Student Information Hub",
+#     page_icon=image,
+#     layout="wide"
+# )
 
 # initial session state of all variables
 if 'item_selected' not in st.session_state:
@@ -12,18 +19,45 @@ if 'item_selected' not in st.session_state:
 if 'uni_name' not in st.session_state:
     st.session_state.uni_name = None
 
-# Sidebar with main buttons
-st.sidebar.markdown("### University")
 
-for uni_name in list_of_uni:
-    doc_list = doc_of_uni[uni_name]
-    expander_button(uni_name, doc_list)
 
-# display main page content
+# Tạo selection box
+option = st.sidebar.selectbox(
+    "Please select your University",
+    options=['Select ...'] + list_of_uni,
+    index=0
+)
 
-if st.session_state.item_selected:
-    # st.write(f"you chosen: {st.session_state.item_selected}")
-    # st.write(f"uni name: {st.session_state.uni_name}")
-    dialog_UI.dialog(uni_name=st.session_state.uni_name, doc_name=st.session_state.item_selected)
-else:
-    st.write("Please select an option from sidebar")
+# Nếu có lựa chọn được chọn
+if option:
+    # Hiển thị tên của lựa chọn
+
+
+    # Kiểm tra điều kiện và hiển thị nội dung tương ứng
+    if option == 'Select ...':
+        # st.write("empty")
+        display_homepage()
+
+
+    # Thêm điều kiện khác nếu cần
+    else:
+        st.write("Content specific to the selected university.")
+        st.write(f"{option}")
+        dialog_UI.dialog(uni_name=option, doc_name="")
+
+# # Tạo kiểu CSS để điều chỉnh kích thước font
+# st.markdown(
+#     """
+#     <style>
+#     .custom-font {
+#         font-size: 20px;  /* Thay đổi kích thước font theo mong muốn của bạn */
+#         font-weight: bold; /* Bạn cũng có thể thêm các tùy chỉnh khác, như đậm, nghiêng, ... */
+#         color: #4CAF50; /* Thay đổi màu sắc nếu muốn */
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
+#
+# # Hiển thị văn bản với kích thước font tùy chỉnh
+# st.markdown('<div class="custom-font">This is a custom-sized text in Markdown!</div>', unsafe_allow_html=True)

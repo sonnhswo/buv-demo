@@ -7,12 +7,12 @@ load_dotenv(find_dotenv('../.env'))
 
 
 list_of_uni = [
-    "Arts University Bournemouth (AUB)",
-    "British University Vietnam (IHM/FE)",
-    "Staffordshire University (SU)",
-    "University of London- Undergraduate (UoL)",
-    "University of London- International Foundation Programme (IFP)",
-    "University of Stirling (US)"
+    "Arts University Bournemouth",
+    "British University Vietnam",
+    "Staffordshire University",
+    "University of London- Undergraduate",
+    "University of London- International Foundation Programme",
+    "University of Stirling"
 ]
 
 doc_of_uni = {

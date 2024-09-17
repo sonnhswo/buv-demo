@@ -1,15 +1,15 @@
 import streamlit as st
 import time
 # from application.app_AUB import get_prompt_ans
-from application import app_AUB
+
 from application.agents import ChatMemoryAgent
 
 
 def dialog(uni_name, doc_name):
 
     #-------------- get the right retriever
-    st.header(str(uni_name))
-    st.markdown(str(doc_name))
+    # st.header(str(uni_name))
+
 
 
     chat_history = []
@@ -51,10 +51,10 @@ def dialog(uni_name, doc_name):
 
         # Update session state
         # answer, suggested_questions = app_AUB.get_prompt_ans(prompt)
-        # answer = app_AUB.get_prompt_ans(prompt)
-        answer = ChatMemoryAgent.get_answer(uni_name=uni_name,
-                                            doc_name=doc_name,
-                                            question=prompt)
+        # answer = ChatMemoryAgent.get_answer(uni_name=uni_name,
+        #                                     doc_name=doc_name,
+        #                                     question=prompt)
+        answer = "answer 1 "
 
         # Display assistant response in chat message container
         with st.chat_message("assistant", avatar="data/img/BUV_assistant_icon.png"):

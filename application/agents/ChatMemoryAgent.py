@@ -25,7 +25,7 @@ def get_answer(uni_name, doc_name, question):
             combine_doc = combine_doc + str(i.metadata["answer"]) + "\n"
 
         # template
-        template = f"""You are a chatbot specialized in answering frequently asked questions from customers about the student shuttle bus service \
+        template = f"""You are a chatbot specialized in answering frequently asked questions from customers about the student information \
         provided by BUV.\n
     
         Use exactly this following information as your answer: {combine_doc}
