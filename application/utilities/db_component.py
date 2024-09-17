@@ -1,4 +1,5 @@
 # from application.const import DATABASES
+import sys
 import os
 from dotenv import load_dotenv, find_dotenv
 
@@ -13,6 +14,9 @@ from langchain.storage._lc_store import create_kv_docstore
 from langchain_community.vectorstores import Chroma
 
 import streamlit as st
+
+__import__('pysqlite3')
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # print(os.getcwd())
 # load_dotenv(find_dotenv('.env'))
