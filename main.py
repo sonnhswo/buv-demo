@@ -7,6 +7,7 @@ from application.utilities.home_component import expander_button, display_homepa
 from application.const import list_of_uni # doc_of_uni
 
 
+
 # st.set_page_config(
 #     page_title="Student Information Hub",
 #     page_icon=image,
@@ -28,16 +29,27 @@ option = st.sidebar.selectbox(
     index=0
 )
 
+if "previous_option" not in st.session_state:
+    st.session_state.previous_option = "Home"
+
+# Check if the selection has changed
+if option != st.session_state.previous_option:
+    # Reset session state variables
+    st.session_state.pop("messages", None)
+    # Update the previous selection
+    st.session_state.previous_option = option
+    
+
 # Nếu có lựa chọn được chọn
 if option:
     # Hiển thị tên của lựa chọn
+    show_doc_sidebar(option)
 
 
     # Kiểm tra điều kiện và hiển thị nội dung tương ứng
     if option == 'Home':
         # st.write("empty")
         display_homepage()
-        show_doc_sidebar(option)
 
     # Thêm điều kiện khác nếu cần
     else:

@@ -24,10 +24,14 @@ from langchain_community.vectorstores import PGVector
 from sqlalchemy import create_engine, Column, Integer, Text, Table, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 from dotenv import load_dotenv, find_dotenv
+
+from models.chat import azure_openai
+from models.embeddings import text_embedding_3large
+
 # __import__('pysqlite3')
 # sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 # load_dotenv(find_dotenv("../application/.env"))
-load_dotenv(find_dotenv(".env"))
+# load_dotenv(find_dotenv(".env"))
 
 # os.environ["AZURE_OPENAI_ENDPOINT"] = "https://alldemo-openai.openai.azure.com/"
 # os.environ["AZURE_OPENAI_API_KEY"] = "5d0c9b16e7e14333918d2b4e61b36216"
@@ -78,20 +82,21 @@ AZURE_OPENAI_ENDPOINT = os.getenv('AZURE_OPENAI_ENDPOINT')
 #     azure_endpoint=AZURE_OPENAI_ENDPOINT,
 # )
 
-# -----------Production-----------
-azure_openai = AzureChatOpenAI(
-    # openai_api_version="2023-05-15",
-    openai_api_version="2024-05-01-preview",
-    azure_deployment="Chat_Models",
-    temperature=0
-)
+# ===========TEMPORARY=====================
+# azure_openai = AzureChatOpenAI(
+#     # openai_api_version="2023-05-15",
+#     openai_api_version="2024-05-01-preview",
+#     azure_deployment="Chat_Models",
+#     temperature=0
+# )
 
-text_embedding_3large = AzureOpenAIEmbeddings(
-    model="Embedding_Models",
-    openai_api_version="2022-12-01",
-    openai_api_key=AZURE_OPENAI_API_KEY,
-    azure_endpoint=AZURE_OPENAI_ENDPOINT,
-)
+# text_embedding_3large = AzureOpenAIEmbeddings(
+#     model="Embedding_Models",
+#     openai_api_version="2022-12-01",
+#     openai_api_key=AZURE_OPENAI_API_KEY,
+#     azure_endpoint=AZURE_OPENAI_ENDPOINT,
+# )
+# ================================
 
 host = os.getenv("PG_VECTOR_HOST")
 user = os.getenv("PG_VECTOR_USER")
@@ -100,7 +105,8 @@ password = os.getenv("PG_VECTOR_PASSWORD")
 database = os.getenv("PGDATABASE4")
 # database = os.getenv("PGDATABASE2")
 pgport = os.getenv("PGPORT")
-COLLECTION_NAME = "langchain_collection"
+# COLLECTION_NAME = "langchain_collection"
+COLLECTION_NAME = os.getenv("COLLECTION_NAME")
 # CONNECTION_STRING = f"postgresql+psycopg2://{user}:{password}@{host}:5432/{database}"
 # CONNECTION_STRING = f"postgresql+psycopg://{user}:{password}@{host}:5432/{database}"
 CONNECTION_STRING = f"postgresql+psycopg://{user}:{password}@{host}:{pgport}/{database}"
@@ -113,14 +119,14 @@ retriever = vector_store.as_retriever(
     search_type="similarity_score_threshold",
     search_kwargs={
         "k": 1,
-        "score_threshold": 0.8
+        "score_threshold": 0.8 # To handle unclear questions
     }
 )
 
+
 # Create a base class using declarative_base
 Base = declarative_base()
-
-# Define your table as a model class
+# Set up the database for raw data
 class FAQ(Base):
     __tablename__ = 'question_answer'  # Table name in the database
 

@@ -27,16 +27,20 @@ def display_homepage():
 
     with st.chat_message("assistant", avatar="./data/img/Starleo_himate.png"):
         st.write("Hi, I’m StarLeo, I’m happy to assist you!")
-        st.write("Please select your awarding body for our further support. "
-                 "If you are a dual degree student, please select the option "
-                 "'British University Vietnam'.",)
+        # st.write("Please select your awarding body for our further support. "
+        #          "If you are a dual degree student, please select the option "
+        #          "'British University Vietnam'.",)
 
 
 def show_doc_sidebar(option):
     on = st.sidebar.toggle("Show Documents", value=True)
     # Define constants for URLs and messages
-    BUV_FAQ_URL = "https://buvbus.blob.core.windows.net/docs/BUV-JUL24-FAQ.pdf"
-    SU_FAQ_URL = "https://buvbus.blob.core.windows.net/docs/SU-JUL24-FAQ.pdf"
+    AUB_FAQ_URL = "https://buvbus.blob.core.windows.net/docs/AUB_OCT24_FREQUENTLY_ASKED_QUESTIONS.pdf"
+    BUV_FAQ_URL = "https://buvbus.blob.core.windows.net/docs/BUV_OCT24_FREQUENTLY_ASKED_QUESTIONS.pdf"
+    SU_FAQ_URL = "https://buvbus.blob.core.windows.net/docs/SU_OCT24_FREQUENTLY_ASKED_QUESTIONS.pdf"
+    UOL_FAQ_URL = "https://buvbus.blob.core.windows.net/docs/UoL_OCT24_FREQUENTLY_ASKED_QUESTIONS.pdf"
+    IFP_FAQ_URL = "https://buvbus.blob.core.windows.net/docs/IFP_OCT24_FREQUENTLY_ASKED_QUESTIONS.pdf"
+    STIRLING_FAQ_URL = "https://buvbus.blob.core.windows.net/docs/STIRLING_OCT24_FREQUENTLY_ASKED_QUESTIONS.pdf"
 
     DISCLAIMER_MESSAGE = (
         "Before you begin using our chat services, please note that the information \
@@ -54,19 +58,31 @@ def show_doc_sidebar(option):
     with st.sidebar:
         if on:
             st.empty()
-            st.markdown(
-                "[Student Handbook 2023-2024](https://buvbus.blob.core.windows.net/docs/Student%20Handbook%202023-2024.pdf)"
-            )
-            st.markdown(
-                "[PSG Programme Handbook](https://buvbus.blob.core.windows.net/docs/PSG%20Programme%20Handbook.pdf)")
-            st.markdown(f"[BUV-JUL24-FAQ]({BUV_FAQ_URL})")
+            if option == "Home":
+                st.markdown(
+                    "[Student Handbook 2023-2024](https://buvbus.blob.core.windows.net/docs/Student%20Handbook%202023-2024.pdf)"
+                )
+                st.markdown(
+                    "[PSG Programme Handbook](https://buvbus.blob.core.windows.net/docs/PSG_Programme_Handbook_Oct_2024.pdf)")
+                # Add the disclaimer to the bottom of the left sidebar
+                st.markdown(DISCLAIMER_MESSAGE)
+
+                # Add the survey to the bottom of the left sidebar
+                st.markdown(SURVEY_MESSAGE)
+            elif option == "Arts University Bournemouth":
+                st.markdown(f"[AUB-FAQ]({AUB_FAQ_URL})")
+            elif option == "British University Vietnam":
+                st.markdown(f"[BUV-FAQ]({BUV_FAQ_URL})")
+            elif option == "Staffordshire University":
+                st.markdown(f"[SU-FAQ]({SU_FAQ_URL})")
+            elif option == "University of London- Undergraduate":
+                st.markdown(f"[UOL-FAQ]({UOL_FAQ_URL})")
+            elif option == "University of London- International Foundation Programme":
+                st.markdown(f"[IFP-FAQ]({IFP_FAQ_URL})")
+            elif option == "University of Stirling":
+                st.markdown(f"[STIRLING-FAQ]({STIRLING_FAQ_URL})")
 
 
-    # Add the disclaimer to the bottom of the left sidebar
-    st.markdown(DISCLAIMER_MESSAGE)
-
-    # Add the survey to the bottom of the left sidebar
-    st.markdown(SURVEY_MESSAGE)
 
 
 def expander_button(uni_name, doc_list):
