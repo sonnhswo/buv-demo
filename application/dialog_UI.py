@@ -107,7 +107,25 @@ def dialog(uni_name):
         # Accept user input
         if prompt:
             if uni_name == "Arts University Bournemouth":
-                pass
+                # ==========NOT USED IT FOR NOW================================
+                # Add user message to chat history
+                st.session_state.messages.append({"role": "user", "content": prompt})
+                # Display user message in chat message container
+                with st.chat_message("user"):
+                    st.markdown(prompt)
+
+                # Update session state
+                # answer, suggested_questions = app_AUB.get_prompt_ans(prompt)
+                answer = ChatMemoryAgent.get_answer(uni_name=uni_name,
+                                                    question=prompt)
+                # answer = "answer 1 "
+
+                # Display assistant response in chat message container
+                with st.chat_message("assistant", avatar="data/img/BUV_assistant_icon.png"):
+                    response = st.write_stream(response_generator(answer))
+                # Add assistant response to chat history
+                st.session_state.messages.append({"role": "assistant", "content": response})
+                # ==========================================
             elif uni_name == "British University Vietnam":
                 
                 
@@ -202,27 +220,26 @@ def dialog(uni_name):
             elif uni_name == "University of London- International Foundation Programme":
                 pass
             elif uni_name == "University of Stirling":
-                pass
+                # ==========NOT USED IT FOR NOW================================
+                # Add user message to chat history
+                st.session_state.messages.append({"role": "user", "content": prompt})
+                # Display user message in chat message container
+                with st.chat_message("user"):
+                    st.markdown(prompt)
+
+                # Update session state
+                # answer, suggested_questions = app_AUB.get_prompt_ans(prompt)
+                answer = ChatMemoryAgent.get_answer(uni_name=uni_name,
+                                                    question=prompt)
+                # answer = "answer 1 "
+
+                # Display assistant response in chat message container
+                with st.chat_message("assistant", avatar="data/img/BUV_assistant_icon.png"):
+                    response = st.write_stream(response_generator(answer))
+                # Add assistant response to chat history
+                st.session_state.messages.append({"role": "assistant", "content": response})
+                # ==========================================
             
-            # ==========NOT USED IT FOR NOW================================
-            # # Add user message to chat history
-            # st.session_state.messages.append({"role": "user", "content": prompt})
-            # # Display user message in chat message container
-            # with st.chat_message("user"):
-            #     st.markdown(prompt)
-
-            # # Update session state
-            # # answer, suggested_questions = app_AUB.get_prompt_ans(prompt)
-            # answer = ChatMemoryAgent.get_answer(uni_name=uni_name,
-            #                                     question=prompt)
-            # # answer = "answer 1 "
-
-            # # Display assistant response in chat message container
-            # with st.chat_message("assistant", avatar="data/img/BUV_assistant_icon.png"):
-            #     response = st.write_stream(response_generator(answer))
-            # # Add assistant response to chat history
-            # st.session_state.messages.append({"role": "assistant", "content": response})
-            # ==========================================
             
             # # Update suggested questions
             # st.session_state.suggested_questions = suggested_questions
