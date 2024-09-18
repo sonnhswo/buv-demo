@@ -87,7 +87,7 @@ def dialog(uni_name):
         # Create a 2 column layout
         col4, col5 = st.columns([0.85, 0.15])
         with col5:
-            reset_button_b_pos = "-45rem"
+            reset_button_b_pos = "-42rem"
             # reset_button_css = float_css_helper(width="12rem", bottom=reset_button_b_pos, right="0rem", transition=0)
             reset_button_css = float_css_helper(width="12rem", bottom=reset_button_b_pos)
             float_parent(css=reset_button_css)
@@ -97,7 +97,7 @@ def dialog(uni_name):
                 
         with col4:
             prompt = st.chat_input("Hi! How can I help you?")
-            button_b_pos = "-45rem"
+            button_b_pos = "-42rem"
             # button_css = float_css_helper(width="2.2rem", bottom=button_b_pos, transition=0)
             button_css = float_css_helper(width="2.2rem", bottom=button_b_pos)
             float_parent(css=button_css)

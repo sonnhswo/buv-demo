@@ -31,7 +31,7 @@ from models.embeddings import text_embedding_3large
 # __import__('pysqlite3')
 # sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 # load_dotenv(find_dotenv("../application/.env"))
-# load_dotenv(find_dotenv(".env"))
+load_dotenv(find_dotenv(".env"))
 
 # os.environ["AZURE_OPENAI_ENDPOINT"] = "https://alldemo-openai.openai.azure.com/"
 # os.environ["AZURE_OPENAI_API_KEY"] = "5d0c9b16e7e14333918d2b4e61b36216"

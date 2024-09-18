@@ -31,7 +31,7 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # os.environ["AZURE_OPENAI_ENDPOINT"] = "https://dalle3-swo.openai.azure.com/"
 # os.environ["AZURE_OPENAI_API_KEY"] = "e51119f8d8774069a6594d92ccf7a70d"
-# load_dotenv(find_dotenv("../.env"))
+load_dotenv(find_dotenv("../.env"))
 AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
 AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
 

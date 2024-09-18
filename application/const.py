@@ -3,7 +3,7 @@ from application.utilities import db_component
 import os
 from dotenv import load_dotenv, find_dotenv
 
-# load_dotenv(find_dotenv('../.env'))
+load_dotenv(find_dotenv('../.env'))
 
 
 list_of_uni = [

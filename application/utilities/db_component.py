@@ -19,7 +19,7 @@ __import__('pysqlite3')
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # print(os.getcwd())
-# load_dotenv(find_dotenv('.env'))
+load_dotenv(find_dotenv('.env'))
 
 host = os.getenv("DEMO_PG_VECTOR_HOST")
 user = os.getenv("DEMO_PG_VECTOR_USER")
