@@ -26,7 +26,7 @@ database = os.getenv("PGDATABASE5")
 pgport = os.getenv("PGPORT")
 # COLLECTION_NAME = "langchain_collection"
 COLLECTION_NAME = os.getenv("COLLECTION_NAME")
-CONNECTION_STRING = f"postgresql+psycopg://{user}:{password}@{host}:{pgport}/{database}"
+CONNECTION_STRING = f"postgresql+psycopg2://{user}:{password}@{host}:{pgport}/{database}"
 
 
 
@@ -79,7 +79,7 @@ def dialog(uni_name):
 
     def delete_messages_session_state():
         """
-        Delete the 'messages_of_sio_follow_up' key from the session state if it exists.
+        Delete the 'messages' key from the session state if it exists.
         """
         st.session_state.pop("messages", None)
         

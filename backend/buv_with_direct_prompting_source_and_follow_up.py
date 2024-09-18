@@ -29,7 +29,7 @@ from application.utilities.model_component import get_cached_retriever
 __import__('pysqlite3')
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
-# load_dotenv(find_dotenv(".env"))
+# load_dotenv(find_dotenv("../.env"))
 AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
 AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
 
